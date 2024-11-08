@@ -1,0 +1,7 @@
+<div>
+  <% @round.questions.each_with_index do |question, x| %>
+    <div>
+      <%= link_to "Въпрос #{x + 1}", question_path(question) %>
+    </div>
+  <% end %>
+</div>

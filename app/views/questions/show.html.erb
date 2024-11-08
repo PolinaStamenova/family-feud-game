@@ -1,0 +1,44 @@
+<div class="question-container">
+  <h1 class="question-title"><%= @question.name %></h1>
+</div>
+
+<%# MIDDLE CONTENT %>
+<div class="middle-content-container">
+  <div class="team-x-counts">
+    <p><%= @team_one_x_counts.x_count %></p> <%# Wrong Answers Count for Team 1 %>
+  </div>
+
+  <div class="answers-container">
+    <% @question.answers.each_with_index do |answer, index| %>
+      <div class="answer">
+        <p class="answer-number"><%= index + 1 %></p>
+        <p class="answer-text"><%= answer.name %></p>
+        <p class="answer-points"><%= answer.points %></p> <%# Display points for each answer %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="team-x-counts">
+    <p><%= @team_two_x_counts.x_count %></p> <%# Wrong Answers Count for Team 2 %>
+  </div>
+</div>
+
+<%# SCORE CONTAINER %>
+<div class="score-container">
+  <div class="team-one-scores">
+    <p class="team-points"><%= @question.game.teams.first.points %></p>
+    <p class="team-name"><%= @question.game.teams.first.name %></p>
+  </div>
+  <div class="collected-points">
+    <p><%= @question.collected_points %></p> <%# All current collected points from correct answers %>
+  </div>
+  <div class="team-two-scores">
+    <p class="team-name"><%= @question.game.teams.last.name %></p>
+    <p class="team-points"><%= @question.game.teams.last.points %></p>
+  </div>
+</div>
+
+<%# NEXT QUESTION %>
+<div class="next-question-link">
+  <p><%= link_to 'Следващ въпрос', round_path(@question.round) %></p>
+</div>

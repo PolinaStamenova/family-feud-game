@@ -1,0 +1,5 @@
+<h1>Започни играта</h1>
+
+<% @game.rounds.each do |round| %>
+  <h2><%= link_to "Рунд #{round.number}", round_path(round) %></h2>
+<% end %>

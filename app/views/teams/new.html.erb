@@ -1,0 +1,19 @@
+<h1>Създай отбори</h1>
+
+<%= form_with url: teams_path, method: :post, local: true do |form| %>
+  <%= hidden_field_tag :game_id, params[:game_id] %>
+  
+  <div class="field">
+    <%= form.label :team1_name, "Име на отбор 1" %>
+    <%= text_field_tag 'teams[team1][name]', nil %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team2_name, "Име на отбор 2" %>
+    <%= text_field_tag 'teams[team2][name]', nil %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Създай отбори" %>
+  </div>
+<% end %>
