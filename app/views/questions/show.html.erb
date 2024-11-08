@@ -42,3 +42,14 @@
 <div class="next-question-link">
   <p><%= link_to 'Следващ въпрос', round_path(@question.round) %></p>
 </div>
+
+<div class="voice-recorder-container">  
+  <button id="microphone-button" onclick="startRecording()">🎤</button>
+  <p id="recorded-text">Казано: </p>
+  
+  <form id="voice-form" action="/save_audio" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="hidden" name="recorded_text" id="recorded_text_input">
+    <input type="submit" value="Провери" class="save-button">
+  </form>
+</div>
